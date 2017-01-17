@@ -1,0 +1,72 @@
+{
+  "policy": {
+    "name": "Detect Application Server",
+    "description": "",
+    "module": "csm",
+    "platform": "linux",
+    "template": false,
+    "shared": true,
+    "retired": false,
+    "read_only": false,
+    "rules": [
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": false,
+        "rule_operator": "OR",
+        "log": true,
+        "name": "SQL Server Detected",
+        "taxonomy": "software_configuration",
+        "checks": [
+          {
+            "object_type": "package_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "packages": "mysql-server",
+            "present": "true"
+          },
+          {
+            "object_type": "process_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "processes": "mysqld",
+            "present": "true"
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": false,
+        "rule_operator": "OR",
+        "log": true,
+        "name": "Web Server Detected",
+        "taxonomy": "software_configuration",
+        "checks": [
+          {
+            "object_type": "package_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "packages": "apache2",
+            "present": "true"
+          },
+          {
+            "object_type": "process_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "processes": "httpd.bin",
+            "present": "true"
+          }
+        ],
+        "reference_identifiers": []
+      }
+    ]
+  }
+}
