@@ -1,0 +1,637 @@
+  {
+  "lids_policy": {
+    "id": "a8e6e1d0c86211e683010dae52aa3cdb",
+    "name": "Suspicious Access Logs (SSH auth.log) Linux Systems",
+    "module": "lids",
+    "description": "This LIDS policy will identify suspiscious logs on Linux systems.",
+    "platform": "linux",
+    "template": false,
+    "retired": false,
+    "shared": true,
+    "read_only": false,
+    "rules": [
+      {
+        "name": "SSH: Unable to negotiate with",
+        "kind": "text",
+        "search_pattern": "<ssh_badkex>[: ].*\"no matching key exchange method found\".*",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "SSH: Received disconnect",
+        "kind": "text",
+        "search_pattern": "\"error: \"?(\"Connection \"(closed|reset)\" by \"|\"Received disconnect from \")",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+         "name":"SSHD configuration error (moduli).",
+         "search_pattern":"error: Bad prime description in line",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"SSHD key error.",
+         "search_pattern":"error: buffer_get_bignum2_ret: negative numbers not supported",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"SSHD key error.",
+         "search_pattern":"fatal: buffer_get_bignum2: buffer error",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"Attempt to login using a denied user.",
+         "search_pattern":"not allowed because",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+        "name": "SSH: PAM: authentication failure",
+        "kind": "text",
+        "search_pattern": "\"error: PAM: \"[aA]\"uthentication \"(error|failure)\" for \"(\"illegal user \")?.+\" from \"",
+        "critical": true,
+        "kind":"text",
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+         "name":"SSH CRC-32 Compensation attack",
+         "search_pattern":"Local: crc32 compensation attack",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"Corrupted bytes on SSHD.",
+         "search_pattern":"Corrupted check bytes on",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+        "name": "SSH: Bad protocol version identification",
+        "kind": "text",
+        "search_pattern": "\"Bad protocol version identification\".*\" from \"",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "SSH: user not allowed",
+        "kind": "text",
+        "search_pattern": "not allowed because",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "SSH: Too Many authentication failures",
+        "kind": "text",
+        "search_pattern": "Disconnecting: Too many authentication failures for",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "SSH: reverse mapping checking getaddrinfo",
+        "kind": "text",
+        "search_pattern": "reverse mapping checking getaddrinfo for",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+         "name":"Timeout while logging in (sshd). (5704)",
+         "search_pattern":"fatal: Timeout before authentication for",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+        "name": "SSH: maximum authentication attempts exceeded for",
+        "kind": "text",
+        "search_pattern": "error: maximum authentication attempts exceeded for",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "SSH: Invalid User",
+        "kind": "text",
+        "search_pattern": "input_userauth_request: invalid user",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "SSH: invalid or rejected user",
+        "kind": "text",
+        "search_pattern": "[Ii]\"nvalid user \".+\" from",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "SSH: Failed login",
+        "kind": "text",
+        "search_pattern": "\"Failed \"[^ ]+\" for \"[^ ]+\" from \"",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "SSH: Did not receive identification string",
+        "kind": "text",
+        "search_pattern": "Did not receive identification string from",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+         "name":"Useless SSHD message without an user/ip and context.",
+         "search_pattern":"error: Could not get shadow information for NOUSER|",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"OpenSSH challenge-response exploit.",
+         "search_pattern":"fatal: buffer_get_string: bad string",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+        "name": "SSH: address mapping",
+        "kind": "text",
+        "search_pattern": "\"maps to \".*\", but this does not map back to the address\"",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Account was added to 'adm'",
+        "kind": "text",
+        "search_pattern": "add '.+' to group 'adm'",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Account was added to 'root'",
+        "kind": "text",
+        "search_pattern": "add '.+' to group 'root'",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Account was created",
+        "kind": "text",
+        "search_pattern": "new user: name=",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Account was modified",
+        "kind": "text",
+        "search_pattern": "COMMAND=\\/usr\\/sbin\\/usermod",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Failed login attempt",
+        "kind": "text",
+        "search_pattern": "Authentication failure",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Failed root login attempt",
+        "kind": "text",
+        "search_pattern": "login.*\\sFAILED LOGIN .* FOR 'root'",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Failed root login attempt using su",
+        "kind": "text",
+        "search_pattern": "FAILED su for root",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Failed SSH root login attempt",
+        "kind": "text",
+        "search_pattern": "sshd.*Failed password for root",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Failed root login attempt",
+        "kind": "text",
+        "search_pattern": "Failed password for root",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Failure",
+        "kind": "text",
+        "search_pattern": "fail",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Group ID (GID) was modified",
+        "kind": "text",
+        "search_pattern": "group changed in.*new gid:",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Group was added to a user account",
+        "kind": "text",
+        "search_pattern": "add '.+' to group",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Group ID changed",
+        "kind": "text",
+        "search_pattern": "groupid changed to",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/syslog"
+      },
+      {
+        "name": "Interface entered promiscuous mode",
+        "kind": "text",
+        "search_pattern": "entered promiscuous mode",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/kern.log"
+      },
+      {
+        "name": "Invalid user login attempt",
+        "kind": "text",
+        "search_pattern": "No passwd entry for user",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Invalid User Login Attempt",
+        "kind": "text",
+        "search_pattern": "input\\_userauth\\_request\\: invalid user",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Multiple failed SUDO attempts",
+        "kind": "text",
+        "search_pattern": "sudo.*incorrect password attempts",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/syslog"
+      },
+      {
+        "name": "Password for root was changed",
+        "kind": "text",
+        "search_pattern": "password changed for root",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Password changed",
+        "kind": "text",
+        "search_pattern": "password changed for",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Potential account brute-force attempt",
+        "kind": "text",
+        "search_pattern": "Too many authentication failures from",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Potential SSH brute-forcing attempted",
+        "kind": "text",
+        "search_pattern": "POSSIBLE BREAK\\-INATTEMPT\\!",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Potential SYN flooding detected",
+        "kind": "text",
+        "search_pattern": "possible SYN flooding on port",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Reboot command issued",
+        "kind": "text",
+        "search_pattern": "COMMAND\\=\\/sbin\\/reboot",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Successful password change event",
+        "kind": "text",
+        "search_pattern": "password changed for",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Successful root login",
+        "kind": "text",
+        "search_pattern": "Accepted password for root from",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "User ID changed",
+        "kind": "text",
+        "search_pattern": "userid changed to",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/syslog"
+      },
+      {
+        "name": "Software was installed",
+        "kind": "text",
+        "search_pattern": "\\sstatus installed\\s",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/dpkg.log"
+      },
+      {
+        "name": "Software was removed",
+        "kind": "text",
+        "search_pattern": "\\sstatus not\\-installed\\s",
+        "critical": false,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/dpkg.log"
+      },
+      {
+        "name": "Successful root login",
+        "kind": "text",
+        "search_pattern": "login.*ROOT LOGIN",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Successful root logon using a key",
+        "kind": "text",
+        "search_pattern": "sshd.*Accepted publickey for root",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "Successful SSH root login",
+        "kind": "text",
+        "search_pattern": "sshd.*Accepted password for root",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+        "name": "System time change attempt",
+        "kind": "text",
+        "search_pattern": "USER=.*\\s;\\sCOMMAND=\\/bin\\/date",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      },
+      {
+         "name":"SSHD is not accepting connections.",
+         "search_pattern":"error: connect to \\S+ port \\d+ failed: Connection refused",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"SSH Scanning.",
+         "search_pattern":"AKASSH_Version_Mapper1.",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"Possible port forwarding failure.",
+         "search_pattern":"error: connect_to ",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"User entered incorrect password.",
+         "search_pattern":"Invalid credentials",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"sshd could not load one or more host keys.",
+         "search_pattern":"Could not load host key",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"Failed write due to one host disappearing.",
+         "search_pattern":"Write failed: Broken pipe",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"Connection reset or aborted.",
+         "search_pattern":"^error: setsockopt SO_KEEPALIVE: Connection reset by peer$|",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"ssh bad client public DH value",
+         "search_pattern":"bad client public DH value",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"ssh corrupted MAC on input",
+         "search_pattern":"Corrupted MAC on input.",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"ssh bad packet length",
+         "search_pattern":"^Bad packet length",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"sshd could not negotiate with client.",
+         "search_pattern":"Unable to negotiate with |Unable to negotiate a key",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"No hostkey alg.",
+         "search_pattern":"no hostkey alg [preauth]",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"Client did not offer an acceptable key exchange method.",
+         "search_pattern":"no matching key exchange method found.|Unable to negotiate a key exchange method",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+         "name":"sshd could not negotiate with client, no matching cipher.",
+         "search_pattern":"no matching cipher found.",
+         "file_path":"/var/log/auth.log",
+         "kind":"text",
+         "active":true,
+         "alert":true,
+         "critical":true
+      },
+      {
+        "name": "User ID (UID) was modified",
+        "kind": "text",
+        "search_pattern": "change user '.+' UID from",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/auth.log"
+      }
+    ]
+  }
+}

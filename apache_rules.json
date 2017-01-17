@@ -1,0 +1,130 @@
+{
+   "lids_policy":{
+      "name":"apache_rules_bitnami",
+      "description":"LIDS Policy to monitor apache logs on Bitnami systems.",
+      "platform":"linux",
+      "module":"lids",
+      "template":"false",
+      "retired":"false",
+      "system":"false",
+      "rules":[
+         {
+            "name":"Apache error messages grouped. (30101)",
+            "search_pattern":"HTTP/1.1\" 404",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":false
+         },
+         {
+            "name":"Attempt to access forbidden file or directory.",
+            "search_pattern":"denied by server configuration",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":false
+         },
+         {
+            "name":"Attempt to access an non-existent file (those are reported on the access.log).",
+            "search_pattern":"File does not exist: |",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"PHP Notice in Apache log",
+            "search_pattern":"PHP Notice:",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"PHP Fatal error",
+            "search_pattern":"PHP Fatal error:",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":false
+         },
+         {
+            "name":"Client sent malformed Host header",
+            "search_pattern":"Client sent malformed Host header",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":false
+         },
+         {
+            "name":"Authentication Failure",
+            "search_pattern":"authentication failure",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":false
+         },
+         {
+            "name":"Attempt to login using a non-existent user. (30109)",
+            "search_pattern":"user \\S+ not found|user \\S+ in realm \\.* not found",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"User authentication failed. (30110)",
+            "search_pattern":"authentication failure",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Attempt to access an non-existent file (those are reported on the access.log). (30112)",
+            "search_pattern":"File does not exist: |",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Invalid URI (bad client request). (30115)",
+            "search_pattern":"Invalid URI in request",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Invalid URI, file name too long. (30117)",
+            "search_pattern":"File name too long|request failed: URI too long",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Attempt to access forbidden directory index.",
+            "search_pattern":"Directory index forbidden by ",
+            "file_path":"/var/log/httpd/error_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         }
+      ]
+   }
+}
