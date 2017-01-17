@@ -1,7 +1,7 @@
 {
    "lids_policy":{
-      "name":"apache_rules_bitnami",
-      "description":"LIDS Policy to monitor apache logs on Bitnami systems.",
+      "name":"apache_rules",
+      "description":"LIDS Policy to monitor apache logs.",
       "platform":"linux",
       "module":"lids",
       "template":"false",
