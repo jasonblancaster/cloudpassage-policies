@@ -1,7 +1,7 @@
   {
   "lids_policy": {
     "id": "a8e6e1d0c86211e683010dae52aa3cdb",
-    "name": "Suspicious Access Logs (SSH auth.log) Linux Systems",
+    "name": "LIDS_Suspicious Access Logs (SSH auth.log) Linux (Jason Lancaster)",
     "module": "lids",
     "description": "This LIDS policy will identify suspiscious logs on Linux systems.",
     "platform": "linux",
