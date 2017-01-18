@@ -1,0 +1,39 @@
+{
+  "policy": {
+    "name": "WordPress Outdated Version",
+    "description": "This CSM policy will detect outdated installs of WordPress. Current version is 4.7.1.",
+    "module": "csm",
+    "platform": "linux",
+    "template": false,
+    "shared": true,
+    "retired": false,
+    "read_only": false,
+    "rules": [
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": false,
+        "rule_operator": "AND",
+        "log": true,
+        "name": "WordPress (Bitnami) Outdated Version (<4.7.1)",
+        "taxonomy": "software_configuration",
+        "checks": [
+          {
+            "object_type": "configuration_file_setting",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "config_file_path": "/opt/bitnami/apps/wordpress/htdocs/wp-includes/version.php",
+            "config_file_section": "",
+            "config_item": "$wp_version",
+            "desired_value": "4.7.1",
+            "comment_character": "",
+            "delimiter": ""
+          }
+        ],
+        "reference_identifiers": []
+      }
+    ]
+  }
+}
