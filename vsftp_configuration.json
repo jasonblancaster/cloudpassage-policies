@@ -1,0 +1,114 @@
+{
+  "policy": {
+    "name": "vsftp_configuration",
+    "description": "This policy will audit the vsftp configuration for security best practices.\n\nRef: https://help.ubuntu.com/lts/serverguide/ftp-server.html",
+    "module": "csm",
+    "platform": "linux",
+    "template": false,
+    "shared": false,
+    "retired": false,
+    "read_only": false,
+    "rules": [
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": false,
+        "rule_operator": "AND",
+        "log": true,
+        "name": "Anonymous FTP Allowed",
+        "taxonomy": "software_configuration",
+        "checks": [
+          {
+            "object_type": "configuration_file_setting",
+            "active": true,
+            "exportable": true,
+            "suggestion": "With this setting:\r\n\r\n    anonymous_enable=Yes\r\n\r\nAnonymous FTP is enabled",
+            "config_file_path": "/etc/vsftpd.conf",
+            "config_file_section": "",
+            "config_item": "anonymous_enable",
+            "desired_value": "Yes",
+            "comment_character": "",
+            "delimiter": ""
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": false,
+        "rule_operator": "AND",
+        "log": true,
+        "name": "Enable SFTP",
+        "taxonomy": "software_configuration",
+        "checks": [
+          {
+            "object_type": "configuration_file_setting",
+            "active": true,
+            "exportable": true,
+            "suggestion": "To configure FTPS, edit /etc/vsftpd.conf and at the bottom add:\r\n\r\nssl_enable=Yes",
+            "config_file_path": "/etc/vsftpd.conf",
+            "config_file_section": "",
+            "config_item": "ssl_enable=Yes",
+            "desired_value": "",
+            "comment_character": "",
+            "delimiter": ""
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "The /etc/ftpusers file is a list of users that are disallowed FTP access. The default list includes root, daemon, nobody, etc. To disable FTP access for additional users simply add them to the list.",
+        "critical": false,
+        "rule_operator": "AND",
+        "log": true,
+        "name": "Disallow FTP access for privileged users",
+        "taxonomy": "software_configuration",
+        "checks": [
+          {
+            "object_type": "configuration_file_setting",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "config_file_path": "/etc/ftpusers",
+            "config_file_section": "",
+            "config_item": "",
+            "desired_value": "root | daemon | nobody",
+            "comment_character": "",
+            "delimiter": ""
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": false,
+        "rule_operator": "AND",
+        "log": true,
+        "name": "Limit users to their home directories",
+        "taxonomy": "software_configuration",
+        "checks": [
+          {
+            "object_type": "configuration_file_setting",
+            "active": true,
+            "exportable": true,
+            "suggestion": "Uncomment this line in /etc/vsftpd.conf:\r\nchroot_local_user=YES",
+            "config_file_path": "/etc/vsftpd.conf",
+            "config_file_section": "",
+            "config_item": "chroot_local_user",
+            "desired_value": "YES",
+            "comment_character": "",
+            "delimiter": ""
+          }
+        ],
+        "reference_identifiers": []
+      }
+    ]
+  }
+}
