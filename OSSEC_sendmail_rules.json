@@ -1,0 +1,94 @@
+{
+   "lids_policy":{
+      "name":"OSSEC sendmail_rules",
+      "description":"Official OSSEC rules. Copyright (C) 2009-2014 Trend Micro Inc. - All rights reserved. License details: http://www.ossec.net/en/licensing.html",
+      "platform":"linux",
+      "module":"lids",
+      "template":"false",
+      "retired":"false",
+      "system":"false",
+      "rules":[
+         {
+            "name":"Grouping of the sendmail reject rules. (3101)",
+            "search_pattern":"reject=",
+            "file_path":"/var/log/maillog",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Sender domain does not have any valid  (3102)",
+            "search_pattern":"reject=451 4.1.8 ",
+            "file_path":"/var/log/maillog",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Rejected by access list  (3103)",
+            "search_pattern":"reject=550 5.0.0 |reject=553 5.3.0",
+            "file_path":"/var/log/maillog",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Attepmt to use mail server as relay  (3104)",
+            "search_pattern":"reject=550 5.7.1 ",
+            "file_path":"/var/log/maillog",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Sender domain is not found  (3105)",
+            "search_pattern":"reject=553 5.1.8 ",
+            "file_path":"/var/log/maillog",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Sender address does not have domain  (3106)",
+            "search_pattern":"reject=553 5.5.4 ",
+            "file_path":"/var/log/maillog",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Sendmail rejected due to pre-greeting. (3108)",
+            "search_pattern":"rejecting commands from",
+            "file_path":"/var/log/maillog",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Sendmail save mail panic. (3109)",
+            "search_pattern":"savemail panic",
+            "file_path":"/var/log/maillog",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SMF-SAV sendmail milter unable to verify  (3191)",
+            "search_pattern":"^sender check failed|^sender check tempfailed",
+            "file_path":"/var/log/maillog",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         }
+      ]
+   }
+}

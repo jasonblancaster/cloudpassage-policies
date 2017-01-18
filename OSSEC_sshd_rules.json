@@ -1,0 +1,436 @@
+{
+   "lids_policy":{
+      "name":"OSSEC sshd_rules",
+      "description":"Official OSSEC rules. Copyright (C) 2009-2014 Trend Micro Inc. - All rights reserved. License details: http://www.ossec.net/en/licensing.html",
+      "platform":"linux",
+      "module":"lids",
+      "template":"false",
+      "retired":"false",
+      "system":"false",
+      "rules":[
+         {
+            "name":"Possible attack on the ssh server  (5701)",
+            "search_pattern":"Bad protocol version identification",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Reverse lookup error (bad ISP or attack). (5702)",
+            "search_pattern":"^reverse mapping",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Timeout while logging in (sshd). (5704)",
+            "search_pattern":"fatal: Timeout before authentication for",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SSH insecure connection attempt (scan). (5706)",
+            "search_pattern":"Did not receive identification string from",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"OpenSSH challenge-response exploit. (5707)",
+            "search_pattern":"fatal: buffer_get_string: bad string",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Useless SSHD message without an user/ip and context. (5709)",
+            "search_pattern":"error: Could not get shadow information for NOUSER|",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Attempt to login using a non-existent user (5710)",
+            "search_pattern":"illegal user|invalid user",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Useless/Duplicated SSHD message without a user/ip. (5711)",
+            "search_pattern":"authentication failure; logname= uid=0 euid=0 tty=ssh|",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Corrupted bytes on SSHD. (5713)",
+            "search_pattern":"Corrupted check bytes on",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SSH CRC-32 Compensation attack (5714)",
+            "search_pattern":"Local: crc32 compensation attack",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SSHD authentication success. (5715)",
+            "search_pattern":"^Accepted|authenticated.$",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SSHD authentication failed. (5716)",
+            "search_pattern":"^Failed|^error: PAM: Authentication",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SSHD configuration error (moduli). (5717)",
+            "search_pattern":"error: Bad prime description in line",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Attempt to login using a denied user. (5718)",
+            "search_pattern":"not allowed because",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"System disconnected from sshd. (5721)",
+            "search_pattern":"Received disconnect from",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh connection closed. (5722)",
+            "search_pattern":"Connection closed",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SSHD key error. (5723)",
+            "search_pattern":"error: buffer_get_bignum2_ret: negative numbers not supported",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SSHD key error. (5724)",
+            "search_pattern":"fatal: buffer_get_bignum2: buffer error",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Host ungracefully disconnected. (5725)",
+            "search_pattern":"fatal: Write failed: Host is down",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Unknown PAM module, PAM misconfiguration. (5726)",
+            "search_pattern":"error: PAM: Module is unknown for",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Attempt to start sshd when something already bound to the port. (5727)",
+            "search_pattern":"failed: Address already in use.",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Authentication services were not able to retrieve user credentials. (5728)",
+            "search_pattern":"Authentication service cannot retrieve user credentials",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Debug message. (5729)",
+            "search_pattern":"debug1: attempt",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SSHD is not accepting connections. (5730)",
+            "search_pattern":"error: connect to \\S+ port \\d+ failed: Connection refused",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SSH Scanning. (5731)",
+            "search_pattern":"AKASSH_Version_Mapper1.",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Possible port forwarding failure. (5732)",
+            "search_pattern":"error: connect_to ",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"User entered incorrect password. (5733)",
+            "search_pattern":"Invalid credentials",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"sshd could not load one or more host keys. (5734)",
+            "search_pattern":"Could not load host key",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Failed write due to one host disappearing. (5735)",
+            "search_pattern":"Write failed: Broken pipe",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Connection reset or aborted. (5736)",
+            "search_pattern":"^error: setsockopt SO_KEEPALIVE: Connection reset by peer$|",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"sshd cannot bind to configured address. (5737)",
+            "search_pattern":"^fatal: Cannot bind any address.$",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"pam_loginuid could not open loginuid. (5738)",
+            "search_pattern":"set_loginuid failed opening loginuid$",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"SSHD configuration error (AuthorizedKeysCommand) (5739)",
+            "search_pattern":"^error: Could not stat AuthorizedKeysCommand",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh connection reset by peer (5740)",
+            "search_pattern":"Connection reset by peer$",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh connection refused (5741)",
+            "search_pattern":"Connection refused$",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh connection timed out (5742)",
+            "search_pattern":"Connection timed out$",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh no route to host (5743)",
+            "search_pattern":"No route to host$",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh port forwarding issue (5744)",
+            "search_pattern":"failure direct-tcpip$",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh transport endpoint is not connected (5745)",
+            "search_pattern":"Transport endpoint is not connected$",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh get_remote_port failed (5746)",
+            "search_pattern":"get_remote_port failed$",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh bad client public DH value (5747)",
+            "search_pattern":"bad client public DH value",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh corrupted MAC on input (5748)",
+            "search_pattern":"Corrupted MAC on input.",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"ssh bad packet length (5749)",
+            "search_pattern":"^Bad packet length",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"sshd could not negotiate with client. (5750)",
+            "search_pattern":"Unable to negotiate with |Unable to negotiate a key",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"No hostkey alg. (5751)",
+            "search_pattern":"no hostkey alg [preauth]",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Client did not offer an acceptable key exchange method. (5752)",
+            "search_pattern":"no matching key exchange method found.|Unable to negotiate a key exchange method",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"sshd could not negotiate with client, no matching cipher. (5753)",
+            "search_pattern":"no matching cipher found.",
+            "file_path":"/var/log/auth.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         }
+      ]
+   }
+}

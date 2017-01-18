@@ -1,0 +1,67 @@
+{
+   "lids_policy":{
+      "name":"OSSEC postfix_rules",
+      "description":"Official OSSEC rules. Copyright (C) 2009-2014 Trend Micro Inc. - All rights reserved. License details: http://www.ossec.net/en/licensing.html",
+      "platform":"linux",
+      "module":"lids",
+      "template":"false",
+      "retired":"false",
+      "system":"false",
+      "rules":[
+         {
+            "name":"IP Address black-listed by anti-spam (blocked). (3306)",
+            "search_pattern":" blocked using ",
+            "file_path":"/var/log/mail.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Postfix process error. (3330)",
+            "search_pattern":"defer service failure|Resource temporarily unavailable|",
+            "file_path":"/var/log/mail.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Postfix SASL authentication failure. (3332)",
+            "search_pattern":" authentication failed",
+            "file_path":"/var/log/mail.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Postfix started. (3334)",
+            "search_pattern":"^daemon started ",
+            "file_path":"/var/log/mail.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Postfix stopped. (3333)",
+            "search_pattern":"^terminating on signal",
+            "file_path":"/var/log/mail.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Grouping of the clamsmtpd rules. (3390)",
+            "search_pattern":"^clamsmtpd: ",
+            "file_path":"/var/log/mail.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         }
+      ]
+   }
+}

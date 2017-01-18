@@ -1,0 +1,49 @@
+{
+   "lids_policy":{
+      "name":"OSSEC vsftpd_rules",
+      "description":"Official OSSEC rules. Copyright (C) 2009-2014 Trend Micro Inc. - All rights reserved. License details: http://www.ossec.net/en/licensing.html",
+      "platform":"linux",
+      "module":"lids",
+      "template":"false",
+      "retired":"false",
+      "system":"false",
+      "rules":[
+         {
+            "name":"FTP session opened. (11401)",
+            "search_pattern":"CONNECT: Client",
+            "file_path":"/var/log/vsftpd.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"FTP Authentication success. (11402)",
+            "search_pattern":"OK LOGIN: ",
+            "file_path":"/var/log/vsftpd.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Login failed accessing the FTP server. (11403)",
+            "search_pattern":"FAIL LOGIN: ",
+            "file_path":"/var/log/vsftpd.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"FTP server file upload. (11404)",
+            "search_pattern":"OK UPLOAD: ",
+            "file_path":"/var/log/vsftpd.log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         }
+      ]
+   }
+}

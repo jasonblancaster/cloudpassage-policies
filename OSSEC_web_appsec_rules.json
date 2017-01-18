@@ -1,0 +1,139 @@
+{
+   "lids_policy":{
+      "name":"OSSEC web_appsec_rules",
+      "description":"Official OSSEC rules. Copyright (C) 2009-2014 Trend Micro Inc. - All rights reserved. License details: http://www.ossec.net/en/licensing.html",
+      "platform":"linux",
+      "module":"lids",
+      "template":"false",
+      "retired":"false",
+      "system":"false",
+      "rules":[
+         {
+            "name":"WordPress Comment Spam (coming from a fake search engine UA). (31501)",
+            "search_pattern":"POST /",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"TimThumb vulnerability exploit attempt. (31502)",
+            "search_pattern":"GET \\S+thumb.php?src=\\S+.php",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"osCommerce login.php bypass attempt. (31503)",
+            "search_pattern":"POST /\\S+.php/login.php?cPath=",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"osCommerce file manager login.php bypass attempt. (31504)",
+            "search_pattern":"/admin/\\w+.php/login.php",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"TimThumb backdoor access attempt. (31505)",
+            "search_pattern":"GET /\\S+/cache/external\\S+.php",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Cart.php directory transversal attempt. (31506)",
+            "search_pattern":"GET /\\S+cart.php?\\S+templatefile=../",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Blacklisted user agent (known malicious user agent). (31508)",
+            "search_pattern":"ZmEu|libwww-perl/|the beast|Morfeus|ZmEu|Nikto|w3af.sourceforge.net|MJ12bot/v",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"CMS (WordPress or Joomla) login attempt. (31509)",
+            "search_pattern":"POST \\S+wp-login.php|POST /administrator",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Blacklisted user agent (wget). (31511)",
+            "search_pattern":"Wget/",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Uploadify vulnerability exploit attempt. (31512)",
+            "search_pattern":"GET /\\S+/uploadify.php?src=http://\\S+.php",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"BBS delete.php exploit attempt. (31513)",
+            "search_pattern":"GET \\S+/delete.php?board_skin_path=http://\\S+.php",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Simple shell.php command execution. (31514)",
+            "search_pattern":"GET \\S+/shell.php?cmd=",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"POST request received. (31530)",
+            "search_pattern":"POST ",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         },
+         {
+            "name":"Anomaly URL query (attempting to pass null termination). (31550)",
+            "search_pattern":"GET /\\S+.php?\\S+%00",
+            "file_path":"/var/log/httpd/access_log",
+            "kind":"text",
+            "active":true,
+            "alert":true,
+            "critical":true
+         }
+      ]
+   }
+}
