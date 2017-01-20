@@ -12,8 +12,8 @@
       {
         "name": "fail2ban IP banned",
         "kind": "text",
-        "search_pattern": "fail2ban\.actions.*Ban",
-        "critical": true,
+        "search_pattern": "fail2ban\\.actions.*Ban",
+        "critical": false,
         "active": true,
         "alert": false,
         "file_path": "/var/log/fail2ban.log"
@@ -21,8 +21,8 @@
       {
         "name": "fail2ban IP banned",
         "kind": "text",
-        "search_pattern": "fail2ban\.actions.Unban",
-        "critical": true,
+        "search_pattern": "fail2ban\\.actions.Unban",
+        "critical": false,
         "active": true,
         "alert": false,
         "file_path": "/var/log/fail2ban.log"
