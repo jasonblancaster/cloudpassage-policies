@@ -1,0 +1,32 @@
+  {
+  "lids_policy": {
+    "name": "Fail2Ban",
+    "module": "lids",
+    "description": "This LIDS policy will pull fail2ban logs on Linux systems.",
+    "platform": "linux",
+    "template": false,
+    "retired": false,
+    "shared": true,
+    "read_only": false,
+    "rules": [
+      {
+        "name": "fail2ban IP banned",
+        "kind": "text",
+        "search_pattern": "fail2ban\.actions.*Ban",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/fail2ban.log"
+      },
+      {
+        "name": "fail2ban IP banned",
+        "kind": "text",
+        "search_pattern": "fail2ban\.actions.Unban",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/fail2ban.log"
+      }
+    ]
+  }
+}
