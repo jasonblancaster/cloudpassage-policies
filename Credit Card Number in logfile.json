@@ -1,0 +1,23 @@
+{
+  "lids_policy": {
+    "name": "Credit Card Number in logfile",
+    "module": "lids",
+    "description": "Identify CCN in log files (/var/log/web_app.log) for Halo Demo.",
+    "platform": "linux",
+    "template": false,
+    "retired": false,
+    "shared": true,
+    "read_only": false,
+    "rules": [
+      {
+        "name": "Credit Card Number in",
+        "kind": "credit_card_text",
+        "search_pattern": "predefined_search_expression",
+        "critical": true,
+        "active": true,
+        "alert": false,
+        "file_path": "/var/log/web_app.log"
+      }
+    ]
+  }
+}
