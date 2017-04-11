@@ -1,0 +1,1032 @@
+{
+  "policy": {
+    "name": "NSA Rootkit Detection",
+    "description": "This policy will audit a Linux server to detect the presence of files known to be associated with EQGRP rootkits. This detects the presence of files matching known filenames.",
+    "module": "csm",
+    "platform": "linux",
+    "template": false,
+    "shared": true,
+    "retired": false,
+    "read_only": false,
+    "rules": [
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": true,
+        "rule_operator": "OR",
+        "log": true,
+        "name": "55808A Rootkit Detected",
+        "taxonomy": "malicious_software",
+        "checks": [
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/tmp/.../r",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/tmp/.../a",
+            "present": false
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": true,
+        "rule_operator": "AND",
+        "log": true,
+        "name": "aPa Rootkit Detected",
+        "taxonomy": "malicious_software",
+        "checks": [
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/share/.aPa",
+            "present": false
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": true,
+        "rule_operator": "OR",
+        "log": true,
+        "name": "Adore Rootkit Detected",
+        "taxonomy": "malicious_software",
+        "checks": [
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/secure",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/doc/sys/qrt",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/doc/sys/run",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/doc/sys/crond",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/sbin/kfd",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/doc/kern/var",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/doc/kern/string.o",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/doc/kern/adore.o",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/doc/kern/ava",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/var/log/ssh/old",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/red.tar",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/start.sh",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/klogd.o",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/0anacron-bak",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/adore",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/bin/red.tar",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/bin/start.sh",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/bin/klogd.o",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/bin/0anacron-bak",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/bin/adore",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/lib",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/libt",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/lib/security/.config/ssh",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/doc/kern",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/doc/backup",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/doc/backup/txt",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/lib/backup",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/lib/backup/txt",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/doc/work",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/doc/sys",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/var/log/ssh",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/doc/.spool",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/lib/kterm",
+            "present": false
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": true,
+        "rule_operator": "OR",
+        "log": true,
+        "name": "AjaKit Rootkit Detected",
+        "taxonomy": "malicious_software",
+        "checks": [
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/dev/tux/.addr",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/dev/tux/.proc",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/dev/tux/.file",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/lib/.libgh-gh/cleaner",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/lib/.libgh-gh/Patch/patch",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/lib/.libgh-gh/sb0k",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/dev/tux",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/lib/.libgh-gh",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/lib/.ligh.gh",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/lib/.ligh-gh",
+            "present": false
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": true,
+        "rule_operator": "AND",
+        "log": true,
+        "name": "Apache Worm Detected",
+        "taxonomy": "malicious_software",
+        "checks": [
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/bin/.log",
+            "present": false
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": true,
+        "rule_operator": "OR",
+        "log": true,
+        "name": "ark Rootkit Detected",
+        "taxonomy": "malicious_software",
+        "checks": [
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.ark?",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/dev/ptyxx/.log",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/dev/ptyxx/.file",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/dev/ptyxx/.proc",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/dev/ptyxx/.addr",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/dev/ptyxx",
+            "present": false
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": true,
+        "rule_operator": "OR",
+        "log": true,
+        "name": "Balaur / Showtee Rootkit Detected",
+        "taxonomy": "malicious_software",
+        "checks": [
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/liblog.o",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/addr.h",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/cron.h",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/file.h",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/proc.h",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/syslogs.h",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/chk.h",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/lib/.kineti",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/lib/.egcs",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/lib/.wormie",
+            "present": false
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": true,
+        "rule_operator": "OR",
+        "log": true,
+        "name": "Beastkit Rootkit Detected",
+        "taxonomy": "malicious_software",
+        "checks": [
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/sbin/arobia",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/sbin/idrun",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/elm/arobia/elm",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/elm/arobia/elm/hk",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/elm/arobia/elm/hk.pub",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/elm/arobia/elm/sc",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/elm/arobia/elm/sd.pp",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/elm/arobia/elm/sdco",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/elm/arobia/elm/srsd",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/lib/ldd.so/bktools",
+            "present": false
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": true,
+        "rule_operator": "OR",
+        "log": true,
+        "name": "beX2 Rootkit Detected",
+        "taxonomy": "malicious_software",
+        "checks": [
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/info/termcap.info-5.gz",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/bin/sshd2",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/include/bex",
+            "present": false
+          }
+        ],
+        "reference_identifiers": []
+      },
+      {
+        "active": true,
+        "alert": false,
+        "comment": "",
+        "critical": true,
+        "rule_operator": "OR",
+        "log": true,
+        "name": "BOBkit Rootkit Detected",
+        "taxonomy": "malicious_software",
+        "checks": [
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/sbin/ntpsx",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/sbin/.../bkit-ava",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/sbin/.../bkit-d",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/sbin/.../bkit-shd",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/sbin/.../bkit-f",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/.../proc.h",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/.../.bash_history",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/.../bkit-get",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/.../bkit-dl",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/.../bkit-screen",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/include/.../bkit-sleep",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../bkit-adore.o",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../ls",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../netstat",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../lsof",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../bkit-ssh/bkit-shdcfg",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../bkit-ssh/bkit-shhk",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../bkit-ssh/bkit-pw",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../bkit-ssh/bkit-shrs",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../bkit-ssh/bkit-mots",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../uconf.inv",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../psr",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../find",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../pstree",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../slocate",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../du",
+            "present": false
+          },
+          {
+            "object_type": "file_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "files": "/usr/lib/.../top",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/sbin/...",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/include/...",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/include/.../.tmp",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/lib/...",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/lib/.../.ssh",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/lib/.../bkit-ssh",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/usr/lib/.bkit-",
+            "present": false
+          },
+          {
+            "object_type": "dir_presence",
+            "active": true,
+            "exportable": true,
+            "suggestion": "",
+            "dirs": "/tmp/.bkp",
+            "present": false
+          }
+        ],
+        "reference_identifiers": []
+      }
+    ]
+  }
+}
